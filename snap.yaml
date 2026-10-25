@@ -1,0 +1,37 @@
+name: movoa
+version: 'VERSION'
+summary: AI video generator with sound, from the command line (movoa.ai)
+description: |
+  Unlimited AI video generator with sound: on paid plans the tenth take of a
+  shot costs what the first did, and your first clip is free to make right now.
+  This is the official Movoa (movoa.ai) CLI: type a prompt, get back the URL of
+  the finished clip with its sound in the same file.
+
+    movoa credits
+    movoa video "a paper boat drifting down a rain gutter, close-up"
+    movoa video "a street drummer in the rain" --model seedance-2-5 --duration 10 --aspect-ratio 9:16
+    movoa video "the camera slowly orbits the statue" --image https://example.com/statue.jpg
+    movoa video "a fox trotting through fresh snow" --no-wait
+    movoa status <id>
+
+  Set MOVOA_API_KEY to a key from https://movoa.ai/settings/apikeys. Runs cost
+  credits on your Movoa account, at the prices on https://movoa.ai/pricing.
+  Models: minimax-h3 (default), seedance-2-5, seedance-2, seedance-2-fast,
+  seedance-2-mini, veo-3-1-fast.
+architectures: [ARCH]
+base: core22
+confinement: strict
+grade: stable
+license: MIT
+title: Movoa AI Video Generator
+links:
+  website:
+    - https://movoa.ai/?utm_source=snapcraft&utm_medium=package
+  source-code:
+    - https://github.com/hanshs474/movoa-docker
+  issues:
+    - https://github.com/hanshs474/movoa-docker/issues
+apps:
+  movoa:
+    command: bin/movoa
+    plugs: [network]
